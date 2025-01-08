@@ -7,23 +7,16 @@ export const signup = async (req, res) => {
         const {fullName, username, email, password} = req.body;
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            return res.status(400).json({ error: "Invalid email format" });
-        }
+        if (!emailRegex.test(email)) return res.status(400).json({ error: "Invalid email format" });
 
         const existingUser = await User.findOne({ username });
-        if (existingUser) {
-            return res.status(400).json({ error: "Username is already taken" });
-        }
+        if (existingUser) return res.status(400).json({ error: "Username is already taken" });
 
         const existingEmail = await User.findOne({ email });
-        if (existingEmail) {
-            return res.status(400).json({ error: "Email is already taken" });
-        }
+        if (existingEmail) return res.status(400).json({ error: "Email is already taken" });
 
-        if(password.length < 6) {
-            return res.status(400).json({ error: "Password must be at least 6 characters long" });
-        }
+        if(password.length < 6) return res.status(400).json({ error: "Password must be at least 6 characters long" });
+
         // hash password
         // 123456 -> adjfaklskjd@adj%U@#
         const salt = await bcrypt.genSalt(10);
