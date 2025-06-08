@@ -20,7 +20,7 @@ export const formatPostDate = (createdAt) => {
     }
 };
 
-export const forrmatMemberSinceDate = (createdAt) => {
+export const formatMemberSinceDate = (createdAt) => {
     const date = new Date(createdAt);
     const months =[
         "January",
