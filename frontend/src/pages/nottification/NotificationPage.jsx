@@ -17,7 +17,7 @@ const NotificationPage = () => {
         const res = await fetch("/api/notifications");
         const data = await res.json();
         if (!res.ok) {
-          throw new Error(data.message || "Failed to fetch notifications");
+          throw new Error(data.error || "Failed to fetch notifications");
         }
         return data;
       } catch (error) {
@@ -34,7 +34,7 @@ const NotificationPage = () => {
         });
         const data = await res.json();
         if (!res.ok) {
-          throw new Error(data.message || "Failed to delete notifications");
+          throw new Error(data.error || "Failed to delete notifications");
         }
         return data;
       } catch (error) {
