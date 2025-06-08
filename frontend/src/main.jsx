@@ -13,6 +13,12 @@ const queryClient = new QueryClient({
   },
 });
 
+// Hydrate authUser from localStorage if present
+const localAuthUser = localStorage.getItem("authUser");
+if (localAuthUser) {
+  queryClient.setQueryData(["authUser"], JSON.parse(localAuthUser));
+}
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
