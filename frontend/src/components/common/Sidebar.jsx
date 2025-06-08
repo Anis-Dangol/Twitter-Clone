@@ -30,7 +30,9 @@ const Sidebar = () => {
       }
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["authUser"] });
+      // Instantly clear authUser and redirect
+      localStorage.removeItem("authUser");
+      queryClient.setQueryData(["authUser"], null);
       toast.success("Logged out successfully");
       navigate("/login");
     },
