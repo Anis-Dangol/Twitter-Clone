@@ -1,3 +1,10 @@
+[Live Demo](https://twitter-clone-1-xgt4.onrender.com/login)
+
+**Demo User:**
+
+- Username: `Steve`
+- Password: `12345678`
+
 # Twitter Clone
 
 A full-stack Twitter clone built with React (frontend), Node.js/Express (backend), and MongoDB. This project allows users to sign up, log in, create posts (with images and emojis), follow/unfollow users, edit their profile (including profile and cover images), and view notifications.
